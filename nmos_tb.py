@@ -10,12 +10,15 @@ import time
 
 print('Sim started on: '+time.ctime())
 # Load netlist
+tic = time.time()
 ngspyce.source('nmos_tb.spice')
+toc = time.time()
+print(f'ngspice netlist time: {int(toc-tic)} seconds')
 # Simulate
 tic = time.time()
 ngspyce.cmd('dc Vd 0 1.8 0.1 Vg 0 1.8 0.3'.lower())
 toc = time.time()
-print(f'ngspice time: {int(toc-tic)} seconds')
+print(f'ngspice sim time: {int(toc-tic)} seconds')
 
 # Read results
 vd, vg, ids, gm = map(ngspyce.vector, ['d', 'g', '@m.xm1.msky130_fd_pr__nfet_01v8_lvt[id]','@m.xm1.msky130_fd_pr__nfet_01v8_lvt[gm]'])

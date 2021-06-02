@@ -3,10 +3,10 @@
 * as placeholders for ngspyce to replace to sweep corners,
 * temperature, etc.
 
-.lib corner_test.lib typ
+*.lib corner_test.lib typ
 *.lib corner_test.lib betalow
 
-*.lib corner_test.lib SIM_BJTCORNER
+.lib corner_test.lib SIM_BJTCORNER
 *.temp SIM_TEMP
 
 R3 vcc intc 10k

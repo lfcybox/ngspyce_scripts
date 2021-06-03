@@ -41,4 +41,12 @@ for corner in corners:
 	plt.ylabel('Voltage [V]')
 	plt.legend()
 
-plt.show()
+	# Free memory
+	# I think ngspyce.vector() is a pointer to the data, but does not make copies. 
+	# Using 'destroy all' would remove that data and the numpy arrays would be gone
+	# You can do 'destroy all' once the vectors are no longer needed...
+	# ngspyce.cmd('destroy all') 
+	# ngspyce.cmd('reset')
+	ngspyce.cmd('remcirc')
+
+plt.show(block=False)

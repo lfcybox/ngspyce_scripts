@@ -10,9 +10,10 @@
 *.temp SIM_TEMP
 
 .param rc = 10k
+.param rb = 68k
 
 R3 vcc intc {rc}
-R1 vcc intb 68k
+R1 vcc intb {rb}
 R2 intb 0 10k
 Cout out intc 10u
 Cin intb in 10u
